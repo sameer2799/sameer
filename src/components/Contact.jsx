@@ -17,6 +17,8 @@ const Contact = () => {
 		});
 	
 	const [ loading, setLoading] = useState(false);
+
+	const [open, setOpen] = useState(false);
 	
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -41,7 +43,7 @@ const Contact = () => {
 		  'VKcDhGywsc0ENpPxA')           // public key from EmailJS
 		  .then((response) => {
 		    setLoading(false);
-		    
+		    setOpen(true);
 		    setForm({
 		      name: "",
 		      email: "",
@@ -53,11 +55,7 @@ const Contact = () => {
 		
 	};
 	
-	const [open, setOpen] = useState(false);
 
-	  const handleClick = () => {
-		setOpen(true);
-	  };
 
 	  const handleClose = (event, reason) => {
 		if (reason === 'clickaway') {
@@ -84,17 +82,17 @@ const Contact = () => {
 				<form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
 				  <label className="flex flex-col">
 				    <span className="text-white font-medium mb-4">Your Name</span>
-				    <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="What's your name" className="bg-black px-6 py-4 placehoder:text-secondary text-white rounded-lg outlined-none border-none font-medium" />
+				    <input type="text" required name="name" value={form.name} onChange={handleChange} placeholder="What's your name" className="bg-black px-6 py-4 placehoder:text-secondary text-white rounded-lg outlined-none border-none font-medium" />
 				  </label>
 				  <label className="flex flex-col">
 				    <span className="text-white font-medium mb-4">Your Email</span>
-				    <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="What's your email" className="bg-black px-6 py-4 placehoder:text-secondary text-white rounded-lg outlined-none border-none font-medium" />
+				    <input type="email" required name="email" value={form.email} onChange={handleChange} placeholder="What's your email" className="bg-black px-6 py-4 placehoder:text-secondary text-white rounded-lg outlined-none border-none font-medium" />
 				  </label>
 				  <label className="flex flex-col">
 				    <span className="text-white font-medium mb-4">Your Message</span>
-				    <textarea rows="7" name="message" value={form.message} onChange={handleChange} placeholder="What do you want to say?" className="bg-black px-6 py-4 placehoder:text-secondary text-white rounded-lg outlined-none border-none font-medium" />
+				    <textarea rows="7" required name="message" value={form.message} onChange={handleChange} placeholder="What do you want to say?" className="bg-black px-6 py-4 placehoder:text-secondary text-white rounded-lg outlined-none border-none font-medium" />
 				  </label>
-				  <Button type='submit' onClick={handleClick} variant="outlined" color="success" className="px-8 py-3 font-bold w-fit rounded-xl">
+				  <Button type='submit' variant="outlined" color="success" className="px-8 py-3 font-bold w-fit rounded-xl">
 				    {loading ? "Sending..." : "Send"}
 				  </Button>
 				   <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
