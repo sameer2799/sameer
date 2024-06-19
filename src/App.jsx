@@ -6,6 +6,9 @@ import Technology from "./components/Technology";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import ScrollToTop from 'react-scroll-to-top';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 
 export default function App() {
@@ -33,10 +36,15 @@ export default function App() {
 			{/* <Experience /> */}
 			<Projects />
 			<Contact />
+			
 		</div>
-		<button id="myBtn" onClick={toHome} title="Go to top" className="visible z-99 fixed right-9 bottom-9 rounded-full bg-red-900 p-3 text-white-900 hover:text-cyan-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">Top</button>
+		{/*<button id="myBtn" onClick={toHome} title="Go to top" className="visible z-99 fixed right-9 bottom-9 rounded-full bg-red-900 p-3 text-white-900 hover:text-cyan-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">Top</button>*/}
 	</div>
+	<ScrollToTop smooth color="purple" viewBox="-50 0 256 256"/>
+	<Analytics/>
+	<SpeedInsights />
 	</BrowserRouter>
+	
   )
 }
 
