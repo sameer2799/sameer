@@ -16,6 +16,7 @@ import {
 } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
+import { MdDownload } from "react-icons/md";
 
 const navigation = [
   { name: 'Home', href: "#", current: true },
@@ -75,6 +76,16 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 gap-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+				<button
+                  type="button"
+                  title="Download Resume"
+                  className="relative rounded-full bg-gray-800 p-2 text-gray-400 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                <a href="Sameer Singh CV.pdf" target="_blank">
+                  <span className="absolute -inset-1.5" />
+					<MdDownload className="h-6 w-6"/>
+                  <span className="sr-only">Resume</span></a>
+                </button>
                 <button
                   type="button"
                   title="LinkedIn"
@@ -109,7 +120,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   title="Email"
-                  className="relative rounded-full bg-gray-800 p-2 text-gray-400 hover:text-black hover:brightness-150 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full bg-gray-800 p-2 text-gray-400 hover:text-[#CD4340] hover:brightness-150 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                 	<a href={CONTACT.email}>
                   <span className="absolute -inset-1.5" />
