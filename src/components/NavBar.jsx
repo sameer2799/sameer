@@ -4,6 +4,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import { useState } from 'react'
 import { CONTACT } from '../constants';
+
 import {
   Disclosure,
   DisclosureButton,
@@ -17,6 +18,8 @@ import {
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import { MdDownload } from "react-icons/md";
+
+const CV = "Sameer_Singh_CV.pdf";
 
 const navigation = [
   { name: 'Home', href: "#", current: true },
@@ -81,7 +84,7 @@ export default function Navbar() {
                   title="Download Resume"
                   className="relative rounded-full bg-gray-800 p-2 text-gray-400 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
-                <a href="Sameer Singh CV.pdf" target="_blank">
+                <a href={CV} target="_blank">
                   <span className="absolute -inset-1.5" />
 					<MdDownload className="h-6 w-6"/>
                   <span className="sr-only">Resume</span></a>
